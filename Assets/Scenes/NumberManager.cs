@@ -16,32 +16,21 @@ public class NumberManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI buttonText8;
     [SerializeField] TextMeshProUGUI buttonText9;
     [SerializeField] TextMeshProUGUI buttonText10;
-    [SerializeField] TextMeshProUGUI buttonText11;
-    [SerializeField] TextMeshProUGUI buttonText12;
-    [SerializeField] TextMeshProUGUI buttonText13;
-    [SerializeField] TextMeshProUGUI buttonText14;
-    [SerializeField] TextMeshProUGUI buttonText15;
     TextMeshProUGUI[] buttonTexts;
-    int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0};
+    int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
     int[, ] relasionshipNumbers = {
-    //   1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
-        {0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-        {0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+    //   1  2  3  4  5  6  7  8  9  10
+        {0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+        {1, 0, 0, 0, 1, 0, 0, 0, 1, 0},
+        {1, 0, 0, 0, 0, 1, 0, 0, 0, 1},
+        {0, 0, 1, 0, 0, 1, 0, 1, 0, 0},
 
-        {0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
-        {0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0},
-        {0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0},
-        {0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0},
-        {0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1},
-        
-        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0},
+        {0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
+        {0, 1, 0, 0, 0, 1, 0, 0, 1, 0},
+        {0, 1, 0, 0, 1, 0, 0, 0, 0, 1},
+        {0, 0, 1, 0, 0, 0, 1, 0, 0, 1},
+        {0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
     };
     int temp = 0;
     int randomNumber1 = 0;
@@ -49,7 +38,7 @@ public class NumberManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        buttonTexts = new TextMeshProUGUI[] {buttonText1, buttonText2, buttonText3, buttonText4, buttonText5, buttonText6, buttonText7, buttonText8, buttonText9, buttonText10, buttonText11, buttonText12, buttonText13, buttonText14, buttonText15};
+        buttonTexts = new TextMeshProUGUI[] {buttonText1, buttonText2, buttonText3, buttonText4, buttonText5, buttonText6, buttonText7, buttonText8, buttonText9, buttonText10};
 
         shuffleNumbers();
         setNumbers();
