@@ -34,16 +34,14 @@ public class NumberManager : MonoBehaviour
         {0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
     };
     int temp = 0;
-    int randomNumber1 = 0;
-    int randomNumber2 = 0;
+    int randomNumber = 0;
     int scoreNumber = 0;
 
     // Start is called before the first frame update
     void Start() {
         buttonTexts = new TextMeshProUGUI[] {buttonText1, buttonText2, buttonText3, buttonText4, buttonText5, buttonText6, buttonText7, buttonText8, buttonText9, buttonText10};
 
-        shuffleNumbers();
-        setNumbers();
+        resetNumbers();
         scoreReload();
     }
 
@@ -67,7 +65,17 @@ public class NumberManager : MonoBehaviour
         }
     }
 
-    public void setNumbers() {
+    public void scoreReload() {
+        scoreLabel.text = "Move:" + scoreNumber.ToString();
+    }
+
+    public void resetNumbers() {
+        for (int i = 1; i < 100; i++) {
+            // random 1 ~ 10
+            randomNumber = UnityEngine.Random.Range(1, 11);
+            clickButton(randomNumber);
+        }
+
         for (int i = 0; i < numbers.Length; i++) {
             if (numbers[i] != 0) {
                 buttonTexts[i].text = numbers[i].ToString();
@@ -75,23 +83,8 @@ public class NumberManager : MonoBehaviour
                 buttonTexts[i].text = "";
             }
         }
-    }
-
-    public void shuffleNumbers() {
-        for (int i = 0; i < 30; i++) {
-            randomNumber1 = UnityEngine.Random.Range(0, numbers.Length);
-            randomNumber2 = UnityEngine.Random.Range(0, numbers.Length);
-
-            temp = numbers[randomNumber1];
-            numbers[randomNumber1] = numbers[randomNumber2];
-            numbers[randomNumber2] = temp;
-        }
 
         scoreNumber = 0;
         scoreReload();
-    }
-
-    public void scoreReload() {
-        scoreLabel.text = "Move:" + scoreNumber.ToString();
     }
 }
